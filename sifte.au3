@@ -1,5 +1,5 @@
 HotKeySet("{TAB}", "BurpFart")
-HotkeySet("{DEL}" , "ExitApp")
+HotKeySet("{DEL}", "ExitApp")
 HotKeySet("{L}", "BurpFartLoop")
 HotKeySet("{1}", "Burp")
 HotKeySet("{2}", "Fart")
@@ -9,13 +9,14 @@ Main()
 Func Main()
 	While 42
 		BurpFartLoop()
-		Sleep(Random(300e3,600e3,1))
+		Sleep(Random(300e3, 600e3, 1))
 	WEnd
-EndFunc
+EndFunc   ;==>Main
 
 Func BurpFart()
-	(Random(0,1,1)) ? Burp() : Fart()
-Endfunc
+	Local $r = (Random(0, 1, 1)) ? Burp() : Fart()
+
+EndFunc   ;==>BurpFart
 
 Func BurpFartLoop()
 	$r = Random(6, 9, 1)
@@ -23,16 +24,16 @@ Func BurpFartLoop()
 		BurpFart()
 		Sleep(166)
 	Next
-EndFunc
+EndFunc   ;==>BurpFartLoop
 
 Func Burp()
 	SoundPlay("SFX_BURP.wav")
-EndFunc
+EndFunc   ;==>Burp
 
 Func Fart()
 	SoundPlay("SFX_FART.wav")
-EndFunc
+EndFunc   ;==>Fart
 
 Func ExitApp()
 	Exit
-EndFunc
+EndFunc   ;==>ExitApp
