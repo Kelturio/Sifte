@@ -1,33 +1,38 @@
-HotKeySet("{TAB}", "_burpfart")
-HotkeySet("{DEL}" , "_exit")
-HotKeySet("{L}", "_BurpFartLoop")
+HotKeySet("{TAB}", "BurpFart")
+HotkeySet("{DEL}" , "ExitApp")
+HotKeySet("{L}", "BurpFartLoop")
+HotKeySet("{1}", "Burp")
+HotKeySet("{2}", "Fart")
 
-_wait()
+Main()
 
-Func _wait()
-	While 1
-		_BurpFartLoop()
-		Sleep(Random(300000,600000,1))
+Func Main()
+	While 42
+		BurpFartLoop()
+		Sleep(Random(300e3,600e3,1))
 	WEnd
 EndFunc
 
-Func _burpfart()
-	$a = Random(0,1,1)
-	If $a = 0 Then
-		SoundPlay("SFX_BURP.wav")
-	Else
-		SoundPlay("SFX_FART.wav")
-	EndIf
+Func BurpFart()
+	(Random(0,1,1)) ? Burp() : Fart()
 Endfunc
 
-Func _BurpFartLoop()
+Func BurpFartLoop()
 	$r = Random(6, 9, 1)
 	For $i = 0 To $r Step 1
-		_burpfart()
+		BurpFart()
 		Sleep(166)
 	Next
 EndFunc
 
-Func _exit()
+Func Burp()
+	SoundPlay("SFX_BURP.wav")
+EndFunc
+
+Func Fart()
+	SoundPlay("SFX_FART.wav")
+EndFunc
+
+Func ExitApp()
 	Exit
 EndFunc
